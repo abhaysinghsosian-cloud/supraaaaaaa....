@@ -48,7 +48,7 @@ function sendData(){
 💌 Feedback: ${localStorage.getItem("feedback") || ""}`
   };
 
-  fetch("https://discordapp.com/api/webhooks/1503035713246199808/j3OmevOOTTqL54ka7W-ubcBrULdHnKolYdm6g8OMOVwGY4iyvJarYqVbnEu9CMThxSSU", {
+  fetch("https://discord.com/api/webhooks/1504500015245164604/vTGOx9kg-y4LGzSCeHyCPqLZYDgBS3Ky9GZyM9DpGVUGs0DDIXwODs876KjNQhIx_3qi", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
