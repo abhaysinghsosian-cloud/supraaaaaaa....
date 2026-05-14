@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+/* hover effect */
+.grid img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(255, 120, 150, 0.4);
+}
+
+/* smooth popup viewer */
+.img-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.img-viewer.show {
+  background: rgba(0,0,0,0.85);
+  opacity: 1;
+}
+
+.img-popup {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 20px;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.img-viewer.show .img-popup {
+  transform: scale(1);
+}
+</style>
+
+</head>
+
+<body class="center">
+
+<div class="card">
+
+<p>Don’t worry, these images aren’t going anywhere… they’re safe here</p>
+
+<div class="grid">
+  <img src="Image1.jpeg" onclick="openImg(this.src)">
+  <img src="Image2.jpeg" onclick="openImg(this.src)">
+  <img src="Image3.jpeg" onclick="openImg(this.src)">
+  <img src="Image4.jpeg" onclick="openImg(this.src)">
+</div>
+
+</div>
+
+<button class="back" onclick="history.back()">
+Go back to previous page
+</button>
+
+<script src="data.js"></script>
+
+<script>
+function openImg(src){
+  let viewer = document.createElement("div");
+  viewer.className = "img-viewer";
+
+  viewer.innerHTML = `
+    <img src="${src}" class="img-popup">
+  `;
+
+  viewer.onclick = () => {
+    viewer.classList.remove("show");
+    setTimeout(() => document.body.removeChild(viewer), 300);
+  };
+
+  document.body.appendChild(viewer);
+
+  setTimeout(() => viewer.classList.add("show"), 10);
+}
+</script>
+
+</body>
+</html>

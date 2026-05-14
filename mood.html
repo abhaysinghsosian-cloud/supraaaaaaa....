@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="center">
+<div class="card">
+<img src="Deal.jpg">
+<p>Alright won't disturb you but at least later you can get me a chocolate treat 😋</p>
+
+<button onclick="deal(this)">Deal 🤝</button>
+</div>
+
+<button class="back" onclick="history.back()">Go to previous page</button>
+
+<script src="data.js"></script>
+<script>
+function deal(btn){
+ btn.innerText="No backing out now 😈";
+ btn.disabled=true;
+}
+</script>
+</body>
+</html>

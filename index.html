@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="center">
+<div class="card">
+
+<h2>Tell me your name first cause the website is only for you ofcourse</h2>
+
+<input id="nameInput" placeholder="enter your name...">
+<button onclick="checkName()">Submit</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script src="data.js"></script>
+
+<script>
+function checkName(){
+ let name = document.getElementById("nameInput").value
+              .toLowerCase()
+              .trim();   // 🔥 THIS IS THE IMPORTANT PART
+
+ saveName(name);
+
+ if(name === "supriya"){
+   document.getElementById("msg").innerText =
+   "Ooh it's actually you welcome to my little website created for you";
+
+   setTimeout(()=>location.href="home.html",1500);
+ } else {
+   document.getElementById("msg").innerText =
+   "hmm… this place might not be for you 👀";
+ }
+}
+</script>
+
+</body>
+</html>
